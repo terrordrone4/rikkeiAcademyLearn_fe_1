@@ -1,0 +1,21 @@
+.edit-button{
+    width: 35px;
+    height: 35px;
+    background-image: url("pen-icon.png");
+    background-size: cover;
+}
+
+
+.delete-button{
+    width: 35px;
+    height: 35px;
+    background-image: url("trash-bin-icon.webp");
+    background-size: cover;
+}
+
+.lock-button{
+    width: 35px;
+    height: 35px;
+    background-image: url("lock-icon.png");
+    background-size: cover;
+}

@@ -1,0 +1,25 @@
+input[type=text] {
+    width: 207px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+
+    border: 1px solid #cacaca;
+    border-radius: 2px;
+
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input:focus {
+    border: 1px solid #458dcc;
+    box-shadow: 0 1px 4px #27156640;
+}
+
+
+
+  
+  /* input[type=text]:focus {
+    border: 3px solid #ff0000;
+  } */

@@ -1,13 +1,286 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
+
+    <h1 style=" text-align: center; "> My Store</h1>
+    <table border = "1">
+        <tr>
+            <th>
+                <h4>Item photo</h4>
+            </th>
+            <th>
+                <h4>Name</h4>
+            </th>
+            <th>
+                <h4>Price</h4>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <img src="Types-of-oranges.jpg" width="150">
+            </td>
+            <td>
+                Oranges
+            </td>
+            <td>
+                $1 ea
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="None.jpg">
+            </td>
+            <td>
+                Bananas
+            </td>
+            <td>
+                $0.75/lb
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="613147c19ef1e50018f99370.webp" width="150">
+            </td>
+            <td>
+                Pomegranates
+            </td>
+            <td>
+                3 for $5
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="None.jpg">
+            </td>
+            <td>
+                Gummy Bears
+            </td>
+            <td>
+                $6 per bag
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="jamie-oliver-broccoli-salad-square.jpg" width="150">
+            </td>
+            <td>
+                Brocoli
+            </td>
+            <td>
+                $3 a head
+            </td>
+        </tr>
+    </table>
+
+
+    <h1>Booking form</h1>
+    <form>
+        <label>Name:</label>
+        <input type="text">
+        <br>
+        
+        <label>Email:</label>
+        <input type="text">
+        <br>
+        
+        <label>Phone</label>
+        <input type="text">
+        <br>
+        
+        <label>Date</label>
+        <input type="date">
+        <br>
+
+        <label>Time</label>
+        <input type="time">
+        <br>
+
+        <label>Number of Guests</label>
+        <input type="number" min = "0">
+        <br>
+
+        <input type="submit">
+    </form>
+
+    <h1>Car purchase form</h1>
+    <form>
+        <label>Name:</label>
+        <input type="text">
+        <br>
+        
+        <label>Email:</label>
+        <input type="text">
+        <br>
+        
+        <label>Phone</label>
+        <input type="text">
+        <br>
+        
+        <label>Choose a car</label>
+        <select>
+            <option>Model 1</option>
+            <option>Model S</option>
+            <option>Omega</option>
+            <option>Abaddon</option>
+            <option>Tempest</option>
+            <option>Slepnir</option>
+            <option>Mobile dick</option>
+        </select>
+        <br>
+
+        <label>Choose a color</label>
+        <select>
+            <option>Red</option>
+            <option>Green</option>
+            <option>Blue</option>
+            <option>Cyan</option>
+            <option>Orange</option>
+        </select>
+        <br>
+
+        <label>Quantity</label>
+        <input type="number" min = "0">
+        <br>
+
+        <label>Delivery Date</label>
+        <input type="date">
+        <br>
+
+        <input type="submit">
+    </form>
+
+    <h1>Sign up</h1>
+    <p>It's quick and easy</p>
+    <form action="dangky.php" method="post">
+
+        <input type="hidden" name="" id="msdd" />
+
+        <input type="text" name="" id="firstName" placeholder="First name" />
+        <input type="text" name="" id="surName" placeholder="Surname" />
+
+        <br>
+        <input type="text" name="" id="mobileNumber" placeholder="Mobile number or email address" />
+
+        <br>
+        <input type="password" name="" id="password" placeholder="password" />
+
+        <p>Date of birth</p>
+        <select>
+            <option value="1"> 1 </option>
+            <option value="2"> 2 </option>
+        </select>
+        <select>
+            <option value="jan"> Jan </option>
+            <option value="feb"> Feb </option>
+        </select>
+        <select>
+            <option value="2023"> 2023 </option>
+            <option value="2021"> 2021 </option>
+        </select>
+
+        <p>Gender</p>
+        Female
+        <input type="radio" name="gender" value="female" checked>
+        male
+        <input type="radio" name="gender" value="male">
+        custom
+        <input type="radio" name="gender" value="custom">
+
+        <br>
+        <input type="submit" value="Sign Up" />
+    </form>
+
+    <table border="21">
+        <tr>
+            <th>STT</th>
+            <th>Ten</th>
+            <th>Tuoi</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Maria Anders</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Francisco Chang Auswchit Megaliona Jeb Sidney</td>
+            <td>56</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Roland Mendel</td>
+            <td>26</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>sadna wkdwdmsdk</td>
+            <td>35</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Yoshi Tannamuri</td>
+            <td>676</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Giovanni Rovelli</td>
+            <td>235</td>
+        </tr>
+    </table>
+
+    <p>A merged table</p>
+    <table border="1.35" style="width: 30%">
+        <tr>
+            <th>Quy</th>
+            <th>Thang</th>
+            <th>Doanh thu</th>
+        </tr>
+        <tr>
+            <td rowspan = "3">Mot</td>
+            <td>Mot</td>
+            <td>$23123</td>
+        </tr>
+        <tr>
+            <td>Hai</td>
+            <td>$12345</td>
+        </tr>
+        <tr>
+            <td>Ba</td>
+            <td>$75667</td>
+        </tr>
+        <tr>
+            <td rowspan = "3">Hai</td>
+            <td>Bon</td>
+            <td>$35</td>
+        </tr>
+        <tr>
+            <td>Nam</td>
+            <td>$676</td>
+        </tr>
+        <tr>
+            <td>Sau</td>
+            <td>$23521123</td>
+        </tr>
+        <tr>
+            <td>bay</td>
+            <td colspan="2" rowspan="3">$123</td>
+        </tr>
+        <tr>
+            <td>tam</td>
+        </tr>
+        <tr>
+            <td>chin</td>
+        </tr>
+    </table>
+
     <h1> Tieu de <br> crap </h1>
     <p>something</p>
     <ul>
@@ -29,7 +302,7 @@
         <li>list item 4</li>
     </ol>
 
-    
+
     <nav>
         <ul>
             <li><a href="test.html"> to test site</a></li>
@@ -38,25 +311,24 @@
     </nav>
 
     <figure>
-        <p><img src="possum.jpg"
-            width="400" 
-            height= "auto" /> 
-                this is a local opossum</p>
+        <p><img src="possum.jpg" width="400" height="auto" />
+            this is a local opossum</p>
         <p>
-            <a href = "https://www.seehafernews.com/2023/02/17/ripples-from-the-dunes-24/" target="_blank"> 
+            <a href="https://www.seehafernews.com/2023/02/17/ripples-from-the-dunes-24/" target="_blank">
                 <img src="https://media.socastsrm.com/wordpress/wp-content/blogs.dir/1960/files/2023/02/1100px-opossum-3.jpeg"
-                width="400" 
-                height="auto"/> 
+                    width="400" height="auto" />
             </a>
-            <P>this is flying opossum</P>
+        <P>this is flying opossum</P>
         </p>
-        
+
     </figure>
     <p>
-        <video controls width = "700" height="auto">
-            <source src = "https://cdn-videos-nguoiduatin.videocdns.com/nguoiduatin/na/2021/4/20/1618887813729/resolutions/chuot-tui-opossum-cong-tren-lung-15-con-non-360p.mp4"/>
+        <video controls width="700" height="auto">
+            <source
+                src="https://cdn-videos-nguoiduatin.videocdns.com/nguoiduatin/na/2021/4/20/1618887813729/resolutions/chuot-tui-opossum-cong-tren-lung-15-con-non-360p.mp4" />
         </video>
         this is a mom opossum
     </p>
 </body>
+
 </html>
