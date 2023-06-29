@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="user-manager.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="jquery-3.7.0.min.js"></script>
 </head>
+
 <body>
     <label>Search user by name</label>
     <input type="text">
@@ -16,69 +19,178 @@
             <th>UserID</th>
             <th>Username</th>
             <th>Email</th>
-            <th>password</th>
+            <th>Password</th>
             <th>Creation date</th>
             <th>Last edit date</th>
             <th>Last edit by</th>
             <th>functionality</th>
         </tr>
         <tr>
-            <td>1</td>
+            <td class="userID">abc1</td>
             <td>Tom</td>
             <td>tom@abc.com</td>
             <td>123</td>
-            <td>12/07/2003</td>
+            <td>05/02/2012</td>
             <td>23/6/2023</td>
             <td>Tom</td>
-            <td>
+            <td class="button-group">
                 <button class="edit-button"></button>
                 <button class="delete-button"></button>
                 <button class="lock-button"></button>
             </td>
         </tr>
         <tr>
-            <td>2</td>
-            <td>Tom</td>
-            <td>tom@abc.com</td>
+            <td class="userID">zzz2</td>
+            <td>Tri</td>
+            <td>tri@abc.com</td>
             <td>123</td>
-            <td>12/07/2003</td>
+            <td>02/11/2000</td>
             <td>23/6/2023</td>
-            <td>Tom</td>
-            <td>
+            <td>Tri</td>
+            <td class="button-group">
                 <button class="edit-button"></button>
                 <button class="delete-button"></button>
                 <button class="lock-button"></button>
             </td>
         </tr>
         <tr>
-            <td>3</td>
-            <td>Tom</td>
-            <td>tom@abc.com</td>
-            <td>123</td>
-            <td>12/07/2003</td>
+            <td class="userID">klid3</td>
+            <td>Tran Quang Tri</td>
+            <td>tquangtri1518@gmail.com</td>
+            <td>Tomandallpossiblearrangementof123</td>
+            <td>12/08/2000</td>
             <td>23/6/2023</td>
             <td>Tom</td>
-            <td>
+            <td class="button-group">
                 <button class="edit-button"></button>
                 <button class="delete-button"></button>
                 <button class="lock-button"></button>
             </td>
         </tr>
         <tr>
-            <td>4</td>
-            <td>Tom</td>
-            <td>tom@abc.com</td>
+            <td class="userID">hunk4123</td>
+            <td>hjink</td>
+            <td>jinks@abc.com</td>
             <td>123</td>
             <td>12/07/2003</td>
             <td>23/6/2023</td>
-            <td>Tom</td>
-            <td>
+            <td>Tri</td>
+            <td class="button-group">
                 <button class="edit-button"></button>
                 <button class="delete-button"></button>
                 <button class="lock-button"></button>
             </td>
         </tr>
     </table>
-    
+
+    <script>
+        var keyList = ["userID", "username", "email", "password", "creation-date", "last-editted-date", "last-editted-by"]
+        var url_edit = "user-edit.html";
+
+        $(document).ready(function () {
+            populateInfosFromReceivedFormIfAny();
+            prepingFormToSendToEditPage();
+            addingDeleteFunctionToDeleteButton();
+            addingLockFunctionToLockButton();
+        });
+
+
+        function populateInfosFromReceivedFormIfAny() {
+
+            const urlParams = new URLSearchParams(window.location.search);
+            $(".userID").each(function () {
+                if ($(this).text() == urlParams.get('userID')) {
+
+                    let $currentRow = $(this).closest("tr");
+                    let keyId = 1;
+
+                    $currentRow.find("td").each(function () {
+                        if ($(this).hasClass('userID')
+                            || $(this).hasClass('button-group')) {
+                            return;
+                        }
+                        $(this).text(urlParams.get(keyList[keyId]));
+
+                        keyId++;
+
+                        if (keyId > keyList.length - 1)
+                            keyId = 0;
+                    })
+                }
+            })
+
+        }
+
+        function prepingFormToSendToEditPage() {
+            $(".edit-button").click(function () {
+                var $currentRow = $(this).closest("tr");
+                var toSend = {};
+
+                var keyId = 0;
+                $currentRow.find("td").each(function () {
+                    if ($(this).hasClass('button-group')) {
+                        return;
+                    }
+
+                    toSend[keyList[keyId]] = $(this).text();
+
+                    keyId++;
+
+                    if (keyId > keyList.length - 1)
+                        keyId = 0;
+                })
+                console.log(toSend);
+
+                let form = $('<form action="' + url_edit
+                    + '" method="GET">'
+
+                    + '<input type="text" name="userID" value="' + toSend['userID'] + '" />'
+                    + '<input type="text" name="username" value="' + toSend['username'] + '" />'
+                    + '<input type="text" name="email" value="' + toSend['email'] + '" />'
+                    + '<input type="text" name="password" value="' + toSend['password'] + '" />'
+                    + '<input type="text" name="creation-date" value="' + toSend['creation-date'] + '" />'
+                    + '<input type="text" name="last-editted-date" value="' + toSend['last-editted-date'] + '" />'
+                    + '<input type="text" name="last-editted-by" value="' + toSend['last-editted-by'] + '" />'
+
+                    + '</form>');
+
+                $('body').append(form);
+                form.submit();
+
+            })
+        }
+
+        function addingDeleteFunctionToDeleteButton() {
+            $(".delete-button").click(function () {
+                var currentRow = $(this).closest("tr");
+                if (currentRow) {
+                    currentRow.remove();
+                }
+            });
+        }
+
+        function addingLockFunctionToLockButton() {
+            var lockStatusDict = {};
+
+            $(".lock-button").click(function () {
+
+                if (!lockStatusDict['isLocked']
+                    || lockStatusDict['isLocked'] == false) {
+
+                    lockStatusDict['isLocked'] = true;
+                    $(this).css("background-image", 'url("lock-icon-red.png")');
+
+                    return;
+                }
+
+                lockStatusDict['isLocked'] = false;
+                $(this).css("background-image", 'url("lock-icon.png")');
+            });
+
+
+        }
+
+    </script>
 </body>
+
 </html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="user-manager.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.0.min.js"></script>
+</head>
+
+
+<body>
+
+    <h1> Go and change some infos about this user </h1>
+    <form action = "user-manager.html" method="GET">
+        <label>userID</label>
+        <input id="userID" name="userID" type="text" readonly="readonly">
+        <br>
+
+        <label>username</label>
+        <input id="username" name="username" type="text">
+        <br>
+
+        <label>email</label>
+        <input id="email" name="email" type="text">
+        <br>
+
+        <label>password</label>
+        <input id="password" name="password" type="text">
+        <br>
+
+        <label>creation date</label>
+        <input id="creation-date" name="creation-date" type="text">
+        <br>
+
+        <label>last editted date</label>
+        <input id="last-editted-date" name="last-editted-date" type="text">
+        <br>
+
+        <label>last editted by</label>
+        <input id="last-editted-by" name="last-editted-by" type="text">
+        <br>
+
+        <input type = "submit" value = "Confirm change for this user">
+        
+    </form>
+
+    <a href = "user-manager.html"> Cancel </a>
+
+
+
+    <script>
+        var keyList = ["userID", "username", "email", "password", "creation-date", "last-editted-date", "last-editted-by"]
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        $(document).ready(function () {
+            $("#userID").val(urlParams.get('userID'));
+            $("#username").val(urlParams.get('username'));
+            $("#email").val(urlParams.get('email'));
+            $("#password").val(urlParams.get('password'));
+            $("#creation-date").val(urlParams.get('creation-date'));
+            $("#last-editted-date").val(urlParams.get('last-editted-date'));
+            $("#last-editted-by").val(urlParams.get('last-editted-by'));
+
+        });
+
+    </script>
+</body>
+
+</html>
