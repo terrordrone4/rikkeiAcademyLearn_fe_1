@@ -1,0 +1,133 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: sans-serif;
+    font-size:13px;
+    font-weight: 400;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.header {
+    width: 100%;
+    height: 15%;
+    padding: 5px;
+}
+
+.header .separative-bar{
+    width: 70px;
+    height: 5px;
+    background-color: orange;
+}
+
+.main{
+    padding: 5px;
+    width: 100%;
+    display: flex;
+}
+
+.main .info{
+    width: 35%;
+    height: 50%;
+    margin-right: 15%;
+}
+
+
+.main .info .info-group{
+    width: 100%;
+    height: 75%;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.main .info .info-group p{
+    width: 100%;
+    height: 33%;
+    border-radius: 10px;
+    display: inline-block; 
+    text-align: left;
+}
+
+.main .info .info-group p::before{
+    background-size: cover;
+    width: 10px;
+    height: 10px;
+    content: "";
+    background-repeat: no-repeat;
+    background-image: url("location-icon.jpg");
+    background-size: cover;
+    background-position: center center;
+    display: block;
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin: 0 6px 0 0;
+    border:0px;
+}
+
+.main .info .info-group p#email::before{
+    background-image: url("email.png");
+    background-size: contain;
+}
+
+
+.main .info .info-group p#mobile-no::before{
+    background-image: url("phone.png");
+    background-size: contain;
+}
+
+.main .book-appointment{
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 65%;
+    height: 100%;
+    display: grid;
+}
+
+.main .book-appointment form input{
+    width: 100%;
+    height: 15.15%;
+    box-sizing: border-box;
+    margin: 10px 10px 10px 0px;
+}
+
+textarea{
+    width: 100%;
+    height: 50%;
+    vertical-align: top;
+    font-family: sans-serif;
+    font-size:13px;
+    padding: 5px 10px 5px 3px;
+}
+
+.main .book-appointment form button{
+    width: 25%;
+    height: 10%;
+    box-sizing: border-box;
+    margin: 10px 10px 10px 0px;
+    background-color: rgb(60 153 157);
+    color: white;
+    font-weight: 300;
+    font-family: sans-serif;
+    border: 0px;
+}
+
+p {
+    color:gray;
+
+}
+
+h1, h3, h4{
+    color: rgba(22, 22, 22, 0.89)
+
+}
+
+h4{
+    height: 25%;
+    font-size: 18px;
+    font-weight: 200;
+}
