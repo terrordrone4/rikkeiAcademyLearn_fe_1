@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lesson_04.css">    
+    <script src="jquery-3.7.0.min.js"></script>
+
+</head>
+<body>
+    <div id = "root" >
+        <div class="header">
+            <img class="logo" src="possum.jpg" title="Dis is da opossum">
+            <p>This is da logo</p>
+            <p class = "test">DON'T CLICK, THINGS MIGHT BREAK !!!
+                AND YES, IM TRASH
+            </p>
+        </div>
+        <div class="main">
+            <div class="main-row row-name" >
+                <p>San pham 1</p>
+            </div>
+            <div class="main-row">
+                <p>San pham 2</p>
+            </div>
+            <div class="main-row">
+                <p>San pham 3</p>
+            </div>
+            <div class="main-row">
+                <p>San pham 4</p>
+            </div>
+        </div>
+        <div class="footer">
+            
+        </div>
+    </div>
+</body>
+
+<script>
+    $(document).ready(
+        function (){
+            var test = $(".test");
+            $("body").click(function (){
+                if(test.hasClass("show")){
+                    $(".test").removeClass("show");
+                    return;
+                }
+                test.addClass("show");
+            })
+        }
+    )
+</script>
+</html>

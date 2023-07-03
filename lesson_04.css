@@ -1,0 +1,65 @@
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+    background-color: cornsilk;
+}
+
+
+.header {
+    width: 100%;
+    height: 20%;
+    background-color: rgb(96, 226, 226);    
+}
+
+img.logo {
+    width: auto;
+    height: 100%;
+}
+
+.header p{
+    font-size: 24px;
+    font-family: 'Lucida Sans';
+    font-weight: 600;
+    text-align: center;
+    color: rgb(227 118 110);
+}
+
+.footer {
+    width: 100%;
+    height: 20%;
+    background-color: blueviolet;
+}
+
+.test{
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.171);
+    position: absolute;
+}
+
+.show{
+    visibility: visible;
+}
+
+.main {
+    display: flex;
+    width: 100%;
+    height: 60%;
+    background-color: aqua;
+}
+
+.main-row{
+    width: 25%;
+    height: 250px;
+    background-color: red;
+}
+
+.row-name{    
+    background-color: blue;
+}
+
+/* this is so fucked */
