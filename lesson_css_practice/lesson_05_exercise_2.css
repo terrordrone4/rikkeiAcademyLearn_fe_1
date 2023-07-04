@@ -58,7 +58,7 @@ body {
     height: 10px;
     content: "";
     background-repeat: no-repeat;
-    background-image: url("location-icon.jpg");
+    background-image: url("image/location-icon.jpg");
     background-size: cover;
     background-position: center center;
     display: block;
@@ -70,13 +70,13 @@ body {
 }
 
 .main .info .info-group p#email::before{
-    background-image: url("email.png");
+    background-image: url("image/email.png");
     background-size: contain;
 }
 
 
 .main .info .info-group p#mobile-no::before{
-    background-image: url("phone.png");
+    background-image: url("image/phone.png");
     background-size: contain;
 }
 
