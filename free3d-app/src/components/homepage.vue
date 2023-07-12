@@ -1,5 +1,5 @@
 <template>
-  <div class="root">
+  <div id="root">
     <div class="header"> <!-- top-bar -->
       <div class="header-inner">
         <a href="/" class="logo">Free 3D</a>
@@ -7,12 +7,32 @@
         <div class="nav-search-bar">
           <input type="text" class="search-bar" placeholder="search 3d models ...">
         </div>
+
         <div class="nav-links">
           <a href="/free-3d-model" class="each-nav-link">Free 3D model</a>
           <a href="/premium-3d-model" class="each-nav-link">Premium 3D model</a>
-        </div>
-        <div class="login-or-register">
+        </div>'
+        '
+        <div class="login-register-group">
+          <div class="register login-register">
 
+            <div class="login-register-button" @click="showLoginModal">
+              Create Free Account
+            </div>
+
+          </div>
+          <div class="inbetween">
+            or
+          </div>
+          <div class="login login-register">
+            <div class="login-register-button" @click="showLoginModal">
+              Login
+            </div>
+            <div class="login-dropdown">
+              <div class="triangle"></div>
+              <modal v-show="isLoginModalVisible" @close="hideLoginModal" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -97,7 +117,7 @@
         </div>
       </div>
 
-      <div class="category-container">
+      <div class="category-container"> <!-- @scroll="onScroll" -->
         <div class="categ" v-for="category_block in category_blocks" :key="category_block.id">
           <div class="desc-block">
             <div class="category-title">
@@ -107,20 +127,20 @@
                 Some Title
               </a>
             </div>
-            
+
             <div class="category-context">
-              blasdn gkasmdkhk,b  lsdlamfl,,g 
-              kamsdk b,b,as,dals,dl,,,g,hm  bbkkqwe
+              blasdn gkasmdkhk,b lsdlamfl,,g
+              kamsdk b,b,as,dals,dl,,,g,hm bbkkqwe
               iiyoypk osdnsflasmgl wowkepwt ippopipio
               hghghtyhf jjsjjg
               asdkasdlasmflksamglkmg askdmadmaw
               jfngjn jgnaslksgklasgkamg wkmwmfg fs asd
             </div>
           </div>
-          <div class="example-block" v-for="example_block in example_blocks" :key="example_block.id">
+          <div class="example-block" v-for="example_block in category_block.example_blocks" :key="example_block.id">
             <div class="content-wrapper">
               <a href="/">
-                <img :src="getRandomImage()">
+                <img :src="example_block.image">
               </a>
             </div>
             <div class="info-wrapper">
@@ -143,70 +163,156 @@
 
         </div>
       </div>
+
+
+
+
     </div>
     <div class="footer"></div>
   </div>
 </template>
 
 <script>
+
+
+import modal from './LoginModal.vue';
+
 export default {
-  name: 'HelloWorld',
+  name: 'HomePage',
+
+  components: {
+    modal,
+  },
+
   props: {
   },
+
   data: function () {
     return {
-
-      example_blocks_counter: 0,
-      example_blocks: [{
-        id: 'example-block-0',
-      }],
+      isLoginModalVisible: false,
 
       category_blocks_counter: 0,
       category_blocks: [{
         id: 'category_blocks-0',
+        example_blocks_counter: 0,
+        example_blocks: [{
+          id: 'example-block-0',
+          image: this.getRandomImage(),
+        }],
       }],
 
       images: [
-        "../image/living-room.png",         
+        "../image/living-room.png",
         "../image/cyclops-subnautica.png",
         "../image/low-poly-f1-car.png",
-      ]
+      ],
+
+      CACHE_AMOUNT_ALLOW_MAX: 8,
+      ELEMENT_HEIGHT: 300,
+
+      elementHidenOnTop: 0,
+      elementHidenBellow: 0,
+    }
+  },
+
+  computed: {
+    isCategoryCountExcedding: function () {
+      return true;
     }
   },
 
   methods: {
-    cloneExampleBlock(cloneAmount) {
-      for (let i = 0; i < cloneAmount; i++) {
-        this.example_blocks_counter++;
-        this.example_blocks.push({
-          id: `example-block-${this.example_blocks_counter}`,
-        });
-        
-        console.log("cloned one");
+    onScroll(element) {
+      //const { scrollTop, offsetHeight, scrollHeight } = element.target;
+      
+      const { scrollTop } = element.target;
+
+      this.elementHidenOnTopCount = this.getHiddenElementOnTopCount(scrollTop);
+
+      // if ((scrollTop + offsetHeight) >= scrollHeight) {
+      //   console.log('bottom!')
+      // }
+
+      if (this.elementHidenOnTopCount > this.CACHE_AMOUNT_ALLOW_MAX) {
+        this.disposeScrollElement(0, this.elementHidenOnTopCount - this.CACHE_AMOUNT_ALLOW_MAX);
       }
     },
-    
+
+    getHiddenElementCount(scrollTop) {
+      return scrollTop / this.ELEMENT_HEIGHT;
+    },
+
+    disposeScrollElement(startIndex, endIndex) {
+      for (let i = 0; i < this.category_blocks.length; i++) {
+        if (i < startIndex) {
+          continue;
+        }
+        if (i > endIndex) {
+          break;
+        }
+        this.dispose(this.category_blocks[i]);
+      }
+    },
+
+    dispose(targetCategBlock) {
+
+      targetCategBlock.example_blocks.forEach(example_block => {
+        example_block.image = "";
+      });
+    },
+
+    showLoginModal() {
+      this.isLoginModalVisible = true;
+    },
+
+    hideLoginModal() {
+      this.isLoginModalVisible = false;
+    },
+
+    cloneExampleBlock(cloneAmount, targetCategBlock) {
+
+      for (let i = 0; i < cloneAmount; i++) {
+        targetCategBlock.example_blocks_counter++;
+        targetCategBlock.example_blocks.push({
+          id: `example-block-${targetCategBlock.example_blocks_counter}`,
+          image: this.getRandomImage(),
+        });
+
+      }
+    },
+
     cloneCategoryBlock(cloneAmount) {
       for (let i = 0; i < cloneAmount; i++) {
         this.category_blocks_counter++;
         this.category_blocks.push({
+
           id: `category-${this.category_blocks_counter}`,
+
+          example_blocks_counter: 0,
+          example_blocks: [{
+            id: 'example-block-0',
+          }],
+
         });
-        
-        console.log("cloned one");
+        let newCategBlock = this.category_blocks[this.category_blocks.length - 1]
+        this.cloneExampleBlock(4, newCategBlock);
       }
     },
 
-    getRandomImage(){
+    getRandomImage() {
       let imageAvailabeCount = this.images.length;
       let randomElementId = Math.floor(Math.random() * imageAvailabeCount);
       return this.images[randomElementId];
     }
   },
   mounted() {
-    console.log("mounted");
-    this.cloneExampleBlock(4);
-    this.cloneCategoryBlock(4);
+    console.log("mounted" + this.category_blocks);
+    console.log("mounted" + this.category_blocks.length);
+
+    let lastCategBlock = this.category_blocks[this.category_blocks.length - 1];
+    this.cloneExampleBlock(4, lastCategBlock);
+
+    this.cloneCategoryBlock(500);
   },
 }
 </script>

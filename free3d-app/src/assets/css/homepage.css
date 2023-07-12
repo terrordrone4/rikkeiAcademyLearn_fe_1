@@ -1,9 +1,9 @@
-* {    
+* {
     box-sizing: border-box;
 }
 
 #root {
-    
+
     padding: 0;
     min-height: 1500px;
     margin: 0;
@@ -14,7 +14,6 @@
     font-weight: 400;
     width: 100vw;
     height: 100vh;
-    background-color: cornsilk;
 }
 
 .header {
@@ -26,8 +25,8 @@
     background-image: url("../image/shop.jpg");
 }
 
-.header-inner{
-    
+.header-inner {
+
     margin: 0;
     padding: 0;
 }
@@ -125,17 +124,88 @@
     background: #3b4456;
 }
 
-.header .login-or-register {
-    background-color: white;
+.login-register-group {
+    float: right;
+}
+
+.login-register-group .login-register {
+    height: 58px;
+    float: right;
+    position: relative;
+    cursor: pointer;
+    color: #fff;
+    margin: 0 50px 0 20px;
+}
+
+.login-register-group .inbetween {
+    margin: 20px 0 0 0;
+    color: #525761;
+    float: right;
+}
+
+
+.login-register-group .login {
+    margin-right: 10px;
+    color: #333;
+
+}
+
+.login-register-button {
+
+    border: none;
+    margin-top: 18px;
+    color: #fff;
+
+    float: left;
+    margin: 15px 0 0 10px;
+    font-weight: bolder;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 1px 2px black;
+    padding: 2px 0;
+    border-radius: 2px;
+    border-top: 3px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+    -webkit-transition: border 500ms ease, color 500ms ease;
+    -moz-transition: border 500ms ease, color 500ms ease;
+    transition: border 500ms ease, color 500ms ease;
+}
+
+.login-register-button:hover {
+    border-color: #ffb35a;
+
+}
+
+.login-dropdown {
+    display: block;
+    margin: 62px 0 0 -120px;
+    width: auto;
+
+    padding: 0;
+    margin: 62px 0 0 -120px;
+    width: auto;
+    right: 0px;
+
+    float: none !important;
+    width: 200px;
+    position: absolute;
+    z-index: 8;
+    left: 50%;
+}
+
+.main {
+
+    background: #fff;
+    position: relative;
+    padding-top: 10px;
+    margin-top: 30px;
 }
 
 .model-type-container {
+    max-width: 890px;
     margin: 40px auto 20px auto;
-    padding: 0px 30px;
-    text-align: center;
-
-    box-sizing: border-box;
 }
+
 
 .model-type-container:after {
     content: "";
@@ -151,9 +221,6 @@
 
     box-sizing: border-box;
     float: none;
-    width: 100%;
-    margin: 0px auto;
-    display: inline;
 }
 
 .model-type-group .small-icon {
@@ -198,21 +265,22 @@
     font-size: 12px;
 }
 
-.category-container{    
+.category-container {
     padding: 0 0 0 0;
+    overflow: scroll;
+    height: 1200px;
 }
 
-.categ{    
+.categ {
     width: 100%;
-    height: 300px;
     overflow: hidden;
-    padding: 20px 30px 20px 30px;
+    padding: 0 30px 0 30px;
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
 }
 
-.desc-block{
+.desc-block {
     width: 250px;
     height: 300px;
     display: block;
@@ -221,22 +289,22 @@
 
 }
 
-.desc-block .category-title{
-    font-family: "Rubik","Lucida Grande",sans-serif;
+.desc-block .category-title {
+    font-family: "Rubik", "Lucida Grande", sans-serif;
     font-size: 18px;
     font-weight: 500;
     padding: 20px 0 10px 0;
     width: 150px;
 }
 
-.desc-block .category-title .category-icon{
+.desc-block .category-title .category-icon {
     position: relative;
     top: 2px;
     font-size: 24px;
     padding: 0 10px 0 0;
 }
 
-.desc-block .category-title .category-icon::after{
+.desc-block .category-title .category-icon::after {
     content: '🏢';
     font-family: "SSPika";
     font-style: normal;
@@ -249,16 +317,16 @@
     -webkit-font-smoothing: antialiased;
 }
 
-.desc-block .category-title a{
+.desc-block .category-title a {
     color: #272d39;
 }
 
-.desc-block .category-context{
+.desc-block .category-context {
 
     color: #666;
 }
 
-.example-block{
+.example-block {
     width: 210px;
     flex-grow: 0;
     flex-shrink: 0;
@@ -267,10 +335,9 @@
     margin-bottom: 30px;
 }
 
-.content-wrapper{
-}
+.content-wrapper {}
 
-.content-wrapper a{
+.content-wrapper a {
     width: 100%;
     height: 180px;
     display: block;
@@ -281,7 +348,7 @@
 
 }
 
-.content-wrapper a img{
+.content-wrapper a img {
 
     display: inline-block !important;
     height: 100%;
@@ -290,25 +357,23 @@
     left: 50%;
     top: 0px;
     transform: translate(-50%);
-    
+
     vertical-align: middle;
 }
 
-.info-wrapper{
+.info-wrapper {}
 
-}
-
-.info-wrapper .title{
+.info-wrapper .title {
     font-size: 12px;
     line-height: 1.4em;
     font-weight: 600;
     text-transform: capitalize;
     margin: 10px auto 0px;
     color: #272d39;
-    
+
 }
 
-.info-wrapper .format{
+.info-wrapper .format {
     font-size: 11px;
     line-height: 14px;
     color: #485365;
@@ -317,35 +382,35 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    
+
 }
 
-.info-wrapper .footer{
-    
+.info-wrapper .footer {
+
     margin: 7px auto 0;
 }
 
-.info-wrapper .footer .price{
-    
+.info-wrapper .footer .price {
+
     color: #60bd5d;
     font-weight: bold;
 }
 
-.info-wrapper .footer .stats{
-    
+.info-wrapper .footer .stats {
+
     float: right;
 }
 
-.info-wrapper .footer .stats .download-count{
-    
+.info-wrapper .footer .stats .download-count {
+
     margin-left: 8px;
     color: #9aa6bc;
     font-size: 12px;
     line-height: 18px;
 }
 
-.info-wrapper .footer .stats .download-count::before{
-    content: "";    
+.info-wrapper .footer .stats .download-count::before {
+    content: "";
     font-family: "SSPika";
     font-size: 12px;
     line-height: 18px;
@@ -353,8 +418,7 @@
     vertical-align: middle;
 }
 
-a {
-    text-decoration: none;
-    outline: 0;
-    cursor: pointer;
+.pagination {
+    display: inline-block;
 }
+
