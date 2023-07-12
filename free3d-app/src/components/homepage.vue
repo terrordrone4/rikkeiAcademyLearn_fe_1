@@ -1,3 +1,5 @@
+<!-- eslint-disable no-unused-vars -->
+<!-- eslint-disable no-unused-vars -->
 <template>
   <div id="root">
     <div class="header"> <!-- top-bar -->
@@ -117,7 +119,7 @@
         </div>
       </div>
 
-      <div class="category-container"> <!-- @scroll="onScroll" -->
+      <div class="category-container">
         <div class="categ" v-for="category_block in category_blocks" :key="category_block.id">
           <div class="desc-block">
             <div class="category-title">
@@ -197,7 +199,7 @@ export default {
         example_blocks_counter: 0,
         example_blocks: [{
           id: 'example-block-0',
-          image: this.getRandomImage(),
+          image: "../image/living-room.png",
         }],
       }],
 
@@ -222,16 +224,13 @@ export default {
   },
 
   methods: {
+    // eslint-disable-next-line no-unused-vars
     onScroll(element) {
       //const { scrollTop, offsetHeight, scrollHeight } = element.target;
       
       const { scrollTop } = element.target;
 
       this.elementHidenOnTopCount = this.getHiddenElementOnTopCount(scrollTop);
-
-      // if ((scrollTop + offsetHeight) >= scrollHeight) {
-      //   console.log('bottom!')
-      // }
 
       if (this.elementHidenOnTopCount > this.CACHE_AMOUNT_ALLOW_MAX) {
         this.disposeScrollElement(0, this.elementHidenOnTopCount - this.CACHE_AMOUNT_ALLOW_MAX);
@@ -290,7 +289,8 @@ export default {
 
           example_blocks_counter: 0,
           example_blocks: [{
-            id: 'example-block-0',
+            id: 'example-block-0',            
+            image: this.getRandomImage(),
           }],
 
         });
@@ -305,14 +305,12 @@ export default {
       return this.images[randomElementId];
     }
   },
+  
   mounted() {
-    console.log("mounted" + this.category_blocks);
-    console.log("mounted" + this.category_blocks.length);
+    console.log(this.category_blocks);
+    this.cloneExampleBlock(4, this.category_blocks[0]);
 
-    let lastCategBlock = this.category_blocks[this.category_blocks.length - 1];
-    this.cloneExampleBlock(4, lastCategBlock);
-
-    this.cloneCategoryBlock(500);
+    this.cloneCategoryBlock(8);
   },
 }
 </script>
