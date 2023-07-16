@@ -31,7 +31,6 @@
               Login
             </div>
             <div class="login-dropdown">
-              <div class="triangle"></div>
               <modal v-show="isLoginModalVisible" @close="hideLoginModal" />
             </div>
           </div>
